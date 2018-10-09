@@ -1,0 +1,12 @@
+git:latest
+matrix-auth:latest
+workflow-aggregator:latest
+docker-commons:latest
+docker-workflow:latest
+credentials-binding:latest
+swarm:latest
+blueocean:latest
+blueocean-github-pipeline:latest
+github-oauth:latest
+github-organization-folder:latest
+ws-cleanup:latest
