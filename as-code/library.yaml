@@ -1,11 +1,11 @@
 unclassified:
   globalLibraries:
     libraries:
-      - name: "praqma-shared@master"
+      - name: "adhoc"
         implicit: true
         defaultVersion: "master"
         retriever:
           modernSCM:
             scm:
               git:
-                remote: "https://github.com/Praqma/shared-pipeline.git"
+                remote: "https://github.com/adhocteam/jenkins-library.git"

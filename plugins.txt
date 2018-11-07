@@ -5,7 +5,6 @@ slack:latest
 configuration-as-code:latest
 configuration-as-code-support:latest
 ws-cleanup:latest
-
 workflow-aggregator:latest
 docker-commons:latest
 docker-workflow:latest
