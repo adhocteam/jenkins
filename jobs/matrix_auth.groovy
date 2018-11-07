@@ -3,7 +3,7 @@ import hudson.security.*
 import com.cloudbees.plugins.credentials.*
 
 Jenkins jenkins = Jenkins.getInstance()
-def strategy = new hudson.security.GlobalMatrixAuthorizationStrategy()
+def strategy = new GlobalMatrixAuthorizationStrategy()
 
 def admin_group = "adhocteam*infrastructure"
 
