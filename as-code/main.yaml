@@ -1,6 +1,3 @@
-#configuration-as-code:
-#  deprecation: warn
-
 jenkins:
   systemMessage: "Welcome to Adhocteam Jenkins"
   numExecutors: 0
@@ -11,15 +8,17 @@ jenkins:
     github:
       githubWebUri: "https://github.com"
       githubApiUri: "https://api.github.com"
-      clientID: "{{ github_client_id }}"
-      clientSecret: "{{ github_client_secret }}"
+      clientID: "${github_client_id}"
+      clientSecret: "${github_client_secret}"
       oauthScopes: "read:org,user:email"
   authorizationStrategy:
     globalMatrix:
       grantedPermissions:
         - "Overall/Read:authenticated"
+        - "Job/Read:authenticated"
         - "View/Read:authenticated"
-        - "Overall/Administer:adhocteam*infrastructure"
+        - "Agent/Build:authenticated"
+        - "Overall/Administer:${admin_team}"
   crumbIssuer: "standard"
 
 tool:
@@ -34,4 +33,4 @@ security:
 
 unclassified:
   location:
-    url: {{ jenkins_url }}
+    url: ${jenkins_url}
