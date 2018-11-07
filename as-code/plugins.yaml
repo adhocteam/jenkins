@@ -1,0 +1,11 @@
+unclassified:
+  globalLibraries:
+    libraries:
+      - name: "praqma-shared@master"
+        implicit: true
+        defaultVersion: "master"
+        retriever:
+          modernSCM:
+            scm:
+              git:
+                remote: "https://github.com/Praqma/shared-pipeline.git"

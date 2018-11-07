@@ -10,3 +10,9 @@ blueocean-github-pipeline:latest
 github-oauth:latest
 github-organization-folder:latest
 ws-cleanup:latest
+configuration-as-code:latest
+configuration-as-code-support:latest
+matrix-auth:latest
+job-dsl:latest
+github-oauth:latest
+slack:latest
