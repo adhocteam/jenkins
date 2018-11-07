@@ -1,0 +1,11 @@
+unclassified:
+  globalLibraries:
+    libraries:
+      - name: "adhoc"
+        implicit: true
+        defaultVersion: "master"
+        retriever:
+          modernSCM:
+            scm:
+              git:
+                remote: "https://github.com/adhocteam/jenkins-library.git"

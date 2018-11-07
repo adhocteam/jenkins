@@ -1,0 +1,36 @@
+jenkins:
+  systemMessage: "Welcome to Adhocteam Jenkins"
+  numExecutors: 0
+  agentProtocols:
+    - "JNLP4-connect"
+  slaveAgentPort: 50000
+  securityRealm:
+    github:
+      githubWebUri: "https://github.com"
+      githubApiUri: "https://api.github.com"
+      clientID: "${github_client_id}"
+      clientSecret: "${github_client_secret}"
+      oauthScopes: "read:org,user:email"
+  authorizationStrategy:
+    globalMatrix:
+      grantedPermissions:
+        - "Overall/Read:authenticated"
+        - "Job/Read:authenticated"
+        - "View/Read:authenticated"
+        - "Agent/Build:authenticated"
+        - "Overall/Administer:${admin_team}"
+  crumbIssuer: "standard"
+
+tool:
+  git:
+    installations:
+      - name: Default
+        home: "git"
+
+security:
+  remotingCLI:
+    enabled: false
+
+unclassified:
+  location:
+    url: ${jenkins_url}

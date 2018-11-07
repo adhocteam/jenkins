@@ -1,0 +1,2 @@
+jobs:
+  - url: https://raw.githubusercontent.com/adhocteam/jenkins/master/jobs/slack_setup.groovy
