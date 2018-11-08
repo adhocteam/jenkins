@@ -11,13 +11,11 @@ jobs:
           github {
             repoOwner("adhocteam")
             apiUri("https://api.github.com")
-            buildForkPRMerge(false)
-            buildOriginBranch(false)
-            buildOriginBranchWithPR(false)
-            buildOriginPRHead(false)
-            buildOriginPRMerge(true)
-            credentialsId('github-token')
-            scanCredentialsId('github-token')
+            credentialsId('github-user')
+            scanCredentialsId('github-user')
+            traits {
+              publicRepoPullRequestFilterTrait()
+            }
           }
         }
 
@@ -27,6 +25,7 @@ jobs:
                 scriptPath 'ValidationJenkinsfile'
             }
         }
+
         // "Orphaned Item Strategy"
         orphanedItemStrategy {
           discardOldItems {
@@ -35,7 +34,7 @@ jobs:
           }
         }
 
-        // "Scan Organization Folder Triggers" : 1 day
+        // Scan Organization Folder Triggers : 1 day
         // We need to configure this stuff by hand because JobDSL only allow 'periodic(int min)' for now
         configure { node ->
           node / triggers / 'com.cloudbees.hudson.plugins.folder.computed.PeriodicFolderTrigger' {
