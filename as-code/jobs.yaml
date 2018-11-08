@@ -12,17 +12,30 @@ jobs:
             repoOwner("adhocteam")
             apiUri("https://api.github.com")
             credentialsId('github-user')
-            scanCredentialsId('github-user')
             traits {
               publicRepoPullRequestFilterTrait()
             }
           }
         }
 
+        configure {
+            def traits = it / navigators / 'org.jenkinsci.plugins.github__branch__source.GitHubSCMNavigator' / traits
+            traits << 'org.jenkinsci.plugins.github_branch_source.BranchDiscoveryTrait' {
+                strategyId 3
+            }
+            traits << 'org.jenkinsci.plugins.github_branch_source.ForkPullRequestDiscoveryTrait' {
+                strategyId 1
+                trust(class: 'org.jenkinsci.plugins.github_branch_source.ForkPullRequestDiscoveryTrait$TrustNobody')
+            }
+            traits << 'org.jenkinsci.plugins.github__branch__source.OriginPullRequestDiscoveryTrait' {
+                strategyId 1
+            }
+        }
+
         // "Project Recognizers"
         projectFactories {
             workflowMultiBranchProjectFactory {
-                scriptPath 'ValidationJenkinsfile'
+                scriptPath 'Jenkinsfile'
             }
         }
 
