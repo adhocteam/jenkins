@@ -1,3 +1,46 @@
 jobs:
   - url: https://raw.githubusercontent.com/adhocteam/jenkins/master/jobs/slack_setup.groovy
   - url: https://raw.githubusercontent.com/adhocteam/jenkins/master/jobs/disable_telemetry.groovy
+  - script: >
+      organizationFolder('Adhocteam Github') {
+        description("Github organization folder for github.com/adhocteam")
+        displayName('Github/Adhocteam')
+
+        // "Projects"
+        organizations {
+          github {
+            repoOwner("adhocteam")
+            apiUri("https://api.github.com")
+            buildForkPRMerge(false)
+            buildOriginBranch(false)
+            buildOriginBranchWithPR(false)
+            buildOriginPRHead(false)
+            buildOriginPRMerge(true)
+            credentialsId('github-token')
+            scanCredentialsId('github-token')
+          }
+        }
+
+        // "Project Recognizers"
+        projectFactories {
+            workflowMultiBranchProjectFactory {
+                scriptPath 'ValidationJenkinsfile'
+            }
+        }
+        // "Orphaned Item Strategy"
+        orphanedItemStrategy {
+          discardOldItems {
+            daysToKeep(-1)
+            numToKeep(-1)
+          }
+        }
+
+        // "Scan Organization Folder Triggers" : 1 day
+        // We need to configure this stuff by hand because JobDSL only allow 'periodic(int min)' for now
+        configure { node ->
+          node / triggers / 'com.cloudbees.hudson.plugins.folder.computed.PeriodicFolderTrigger' {
+            spec('H H * * *')
+            interval(86400000)
+          }
+        }
+      }
