@@ -1,3 +1,8 @@
 jobs:
+  - organizationFolder:
+      name: "Ad Hoc"
+      navigators:
+        - github:
+            repoOwner: "adhocteam"
   - url: https://raw.githubusercontent.com/adhocteam/jenkins/master/jobs/slack_setup.groovy
-  - url: https://raw.githubusercontent.com/adhocteam/jenkins/master/jobs/matrix_auth.groovy
+  - url: https://raw.githubusercontent.com/adhocteam/jenkins/master/jobs/disable_telemetry.groovy
