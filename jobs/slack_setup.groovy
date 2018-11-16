@@ -9,6 +9,8 @@ def slack = Jenkins.instance.getExtensionList('jenkins.plugins.slack.SlackNotifi
 slack.teamDomain = 'adhoc'
 slack.tokenCredentialId = 'slack-token'
 slack.room = '#inf-alerts'
+slack.botUser = 'true'
+slack.baseUrl = 'https://adhoc.slack.com/services/hooks/jenkins-ci/'
 
 // save to disk
 slack.save()
