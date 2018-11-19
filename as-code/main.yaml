@@ -21,7 +21,6 @@ jenkins:
         - "View/Read:adhocteam"
         - "Agent/Build:adhocteam"
         - "Overall/Administer:adhocteam*Infrastructure Team"
-        - "Overall/Administer:${admin_team}"
   crumbIssuer: "standard"
 
 tool:
