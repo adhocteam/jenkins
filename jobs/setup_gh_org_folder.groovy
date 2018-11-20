@@ -5,12 +5,9 @@ organizationFolder('Adhocteam Github') {
     // "Projects"
     organizations {
         github {
-        repoOwner("adhocteam")
-        apiUri("https://api.github.com")
-        credentialsId('github-user')
-        traits {
-            publicRepoPullRequestFilterTrait()
-        }
+            repoOwner("adhocteam")
+            apiUri("https://api.github.com")
+            credentialsId('github-user')
         }
     }
 
