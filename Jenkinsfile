@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'docker build --pull -t adhocteam/jenkins:latest .'
+                sh 'docker build --pull --no-cache -t adhocteam/jenkins:latest .'
             }
         }
 

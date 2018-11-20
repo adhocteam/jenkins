@@ -9,6 +9,7 @@ github-oauth:latest
 github-branch-source:latest
 job-dsl:latest
 matrix-auth:latest
+nodelabelparameter:latest
 slack:latest
 swarm:latest
 workflow-aggregator:latest
