@@ -15,15 +15,16 @@ job('docker-cleanup') {
     }
 
     steps {
-        shell( '''
-        set -xe
+        shell('''
+set -exu
 
-        docker system df -v
+docker system df -v
 
-        docker system prune -af --volumes --filter "until=24h"
+docker system prune -af --filter "until=24h"
+docker volume prune -f
 
-        docker system df -v
-        df -h
+docker system df -v
+df -h
         ''')
     }
 
