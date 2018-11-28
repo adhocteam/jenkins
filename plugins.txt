@@ -10,6 +10,7 @@ github-branch-source:latest
 job-dsl:latest
 matrix-auth:latest
 nodelabelparameter:latest
+pipeline-github-plugin:latest
 slack:latest
 swarm:latest
 workflow-aggregator:latest
