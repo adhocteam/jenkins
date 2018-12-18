@@ -1,0 +1,4 @@
+unclassified:
+  slackNotifier:
+    teamDomain: 'adhoc'
+    tokenCredentialId: 'slack-token'

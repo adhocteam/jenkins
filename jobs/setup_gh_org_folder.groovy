@@ -14,7 +14,7 @@ organizationFolder('Adhocteam Github') {
     configure {
         def traits = it / navigators / 'org.jenkinsci.plugins.github__branch__source.GitHubSCMNavigator' / traits
         traits << 'org.jenkinsci.plugins.github_branch_source.BranchDiscoveryTrait' {
-            strategyId 3
+            strategyId 1
         }
         traits << 'org.jenkinsci.plugins.github_branch_source.ForkPullRequestDiscoveryTrait' {
             strategyId 1
