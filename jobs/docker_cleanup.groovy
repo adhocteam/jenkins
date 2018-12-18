@@ -2,6 +2,7 @@ job('docker-cleanup') {
     displayName('Docker clean-up')
     description('Cleans up all left-over docker item to prevent the hard-drive filling up')
 
+    // Once per dau
     triggers {
         cron('H H * * *')
     }

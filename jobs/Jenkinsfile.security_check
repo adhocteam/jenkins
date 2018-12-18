@@ -1,0 +1,50 @@
+#!/usr/bin/groovy
+
+def repos = ["adhoc_co"]
+
+pipeline {
+  agent {
+    label 'rails'
+  }
+
+  triggers {
+    cron('0 17 * * 1-5') // Roughly 1pm EST Monday-Friday
+  }
+
+  environment {
+    GH_USER = credentials('github-user')
+  }
+
+  options {
+    skipDefaultCheckout()
+  }
+
+  stages {
+    stage('Audit bundled gems') {
+      steps {
+        script {
+          for (repo in repos) {
+            String audit_result
+            docker.image('ruby:2.5.1').inside("-e HOME=${WORKSPACE}") {
+              checkout([$class: 'GitSCM',
+                clearWorkpace: true,
+                branches: [[name: "refs/heads/master"]],
+                userRemoteConfigs: [[credentialsId: 'github-user', url: "https://github.com/adhocteam/${repo}.git"]]
+              ])
+              sh "bundle config --global frozen 1 && bundle install --retry 5"
+              audit_result = sh(script: "bundle audit -uq || true", returnStdout: true).trim()
+            }
+            if (audit_result) {
+              slackSend color: "#FF0000", message: ":siren: Vulnerable gems found in <https://github.com/adhocteam/${repo}|${repo}>\n ${audit_result}"
+            }
+          }
+        }
+      }
+    }
+  }
+  post {
+    cleanup {
+      cleanWs()
+    }
+  }
+}
