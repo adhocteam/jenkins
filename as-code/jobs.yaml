@@ -2,4 +2,4 @@ jobs:
   - url: https://raw.githubusercontent.com/adhocteam/jenkins/master/jobs/disable_telemetry.groovy
   - url: https://raw.githubusercontent.com/adhocteam/jenkins/master/jobs/setup_gh_org_folder.groovy
   - url: https://raw.githubusercontent.com/adhocteam/jenkins/master/jobs/docker_cleanup.groovy
-  - url: https://raw.githubusercontent.com/adhocteam/jenkins/security-check/jobs/security_check.groovy
+  - url: https://raw.githubusercontent.com/adhocteam/jenkins/master/jobs/security_check.groovy
