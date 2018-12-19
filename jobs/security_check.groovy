@@ -1,4 +1,4 @@
-job('security-check') {
+pipelineJob('security-check') {
   displayName('Rails Bundle Audit')
   description('Runs bundle audit on Rails repositories')
 
