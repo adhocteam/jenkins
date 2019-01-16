@@ -2,3 +2,4 @@ unclassified:
   slackNotifier:
     teamDomain: 'adhoc'
     tokenCredentialId: 'slack-token'
+    room: '#inf-alerts'
