@@ -10,16 +10,16 @@ jenkins:
     github:
       githubWebUri: "https://github.com"
       githubApiUri: "https://api.github.com"
-      clientID: "${github_client_id:-test}"
-      clientSecret: "${github_client_secret:-test}"
+      clientID: "${github_client_id}"
+      clientSecret: "${github_client_secret}"
       oauthScopes: "read:org,user:email,repo"
   authorizationStrategy:
     globalMatrix:
       grantedPermissions:
         - "Overall/Read:adhocteam"
-        - "Job/Read:adhocteam*va-demo"
-        - "View/Read:adhocteam*va-demo"
-        - "Agent/Build:adhocteam*va-demo"
+        - "Job/Read:adhocteam"
+        - "View/Read:adhocteam"
+        - "Agent/Build:adhocteam"
         - "Overall/Administer:adhocteam*va-demo"
   crumbIssuer: "standard"
 
@@ -35,4 +35,4 @@ security:
 
 unclassified:
   location:
-    url: ${jenkins_url:-http://localhost}
+    url: ${jenkins_url}
