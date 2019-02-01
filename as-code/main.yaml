@@ -17,10 +17,10 @@ jenkins:
     globalMatrix:
       grantedPermissions:
         - "Overall/Read:adhocteam"
-        - "Job/Read:adhocteam"
-        - "View/Read:adhocteam"
-        - "Agent/Build:adhocteam"
-        - "Overall/Administer:adhocteam*Infrastructure Team"
+        - "Job/Read:adhocteam*va-demo"
+        - "View/Read:adhocteam*va-demo"
+        - "Agent/Build:adhocteam*va-demo"
+        - "Overall/Administer:adhocteam*va-demo"
   crumbIssuer: "standard"
 
 tool:
