@@ -9,4 +9,7 @@ multibranchPipelineJob("va-demo") {
             repository('sample-task-toolkit')
         }
     }
+    triggers {
+        githubPush()
+    }
 }
