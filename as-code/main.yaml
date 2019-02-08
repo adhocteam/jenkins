@@ -10,8 +10,8 @@ jenkins:
     github:
       githubWebUri: "https://github.com"
       githubApiUri: "https://api.github.com"
-      clientID: "${github_client_id:-test}"
-      clientSecret: "${github_client_secret:-test}"
+      clientID: "${github_client_id}"
+      clientSecret: "${github_client_secret}"
       oauthScopes: "read:org,user:email,repo"
   authorizationStrategy:
     globalMatrix:
@@ -35,4 +35,4 @@ security:
 
 unclassified:
   location:
-    url: ${jenkins_url:-http://localhost}
+    url: ${jenkins_url}
