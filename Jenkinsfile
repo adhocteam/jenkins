@@ -27,9 +27,6 @@ pipeline {
         }
 
         stage('Publish') {
-            when {
-                branch 'master'
-            }
             steps {
                 withDockerRegistry([ credentialsId: 'dockerhub-user', url: "" ]) {
                 sh "docker push adhocteam/jenkins:${TAG}"
