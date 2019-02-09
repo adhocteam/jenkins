@@ -1,3 +1,7 @@
+import jenkins.model.Jenkins
+import jenkins.branch.MultiBranchProject
+import jenkins.branch.OrganizationFolder
+
 jobs = Jenkins.instance.getAllItems()
 jobs.each { j ->
 
