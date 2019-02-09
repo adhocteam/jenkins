@@ -8,7 +8,7 @@ pipeline {
     }
 
     stages {
-        state('Set Tag') {
+        stage('Set Tag') {
             when {
                 not { branch 'master' }
             }
