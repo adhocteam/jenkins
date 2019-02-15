@@ -1,6 +1,12 @@
 FROM jenkins/jenkins:latest
 
 #####
+# Add groovy init scripts
+#####
+
+COPY init.groovy.d/* /usr/share/jenkins/ref/init.groovy.d/
+
+#####
 # Install our plug-ins
 #####
 COPY plugins.txt $JENKINS_HOME/plugins.txt

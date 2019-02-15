@@ -3,20 +3,33 @@ pipeline {
         label 'general'
     }
 
+    environment {
+        TAG = 'latest'
+    }
+
     stages {
+        stage('Set Tag') {
+            when {
+                not { branch 'master' }
+            }
+
+            steps {
+                script {
+                    TAG = "${BRANCH_NAME}"
+                }
+            }
+        }
+
         stage('Build') {
             steps {
-                sh 'docker build --pull --no-cache -t adhocteam/jenkins:latest .'
+                sh "docker build --pull --no-cache -t adhocteam/jenkins:${TAG} ."
             }
         }
 
         stage('Publish') {
-            when {
-                branch 'master'
-            }
             steps {
-                withDockerRegistry([ credentialsId: "dockerhub-user", url: "" ]) {
-                sh 'docker push adhocteam/jenkins:latest'
+                withDockerRegistry([ credentialsId: 'dockerhub-user', url: "" ]) {
+                sh "docker push adhocteam/jenkins:${TAG}"
                 }
             }
         }
