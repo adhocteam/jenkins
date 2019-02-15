@@ -20,7 +20,7 @@ jenkins:
         - "Job/Read:adhocteam"
         - "View/Read:adhocteam"
         - "Agent/Build:adhocteam"
-        - "Overall/Administer:adhocteam*va-demo"
+        - "Overall/Administer:adhocteam*infrastructure"
   crumbIssuer: "standard"
 
 tool:
