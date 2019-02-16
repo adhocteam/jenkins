@@ -1,4 +1,4 @@
-multibranchPipelineJob("va-demo") {
+multibranchPipelineJob("mpsm") {
     displayName "MPSM Preview"
     description "https://github.com/adhocteam/mpsm-preview"
 
