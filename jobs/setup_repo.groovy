@@ -1,12 +1,12 @@
-multibranchPipelineJob("mpsm") {
-    displayName "MPSM Preview"
-    description "https://github.com/adhocteam/mpsm-preview"
+multibranchPipelineJob("va-demo") {
+    displayName "VA Demo"
+    description "https://github.com/adhocteam/va-demo"
 
     branchSources {
         github {
             scanCredentialsId('github-user')
             repoOwner('adhocteam')
-            repository('mpsm-preview')
+            repository('sample-task-toolkit')
         }
     }
 

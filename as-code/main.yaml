@@ -1,5 +1,5 @@
 jenkins:
-  systemMessage: "Welcome to MPSM Jenkins"
+  systemMessage: "Welcome to Adhocteam Jenkins"
   numExecutors: 0
   agentProtocols:
     - "JNLP4-connect"
@@ -20,7 +20,7 @@ jenkins:
         - "Job/Read:adhocteam"
         - "View/Read:adhocteam"
         - "Agent/Build:adhocteam"
-        - "Overall/Administer:adhocteam*mpsm"
+        - "Overall/Administer:adhocteam*Infrastructure Team"
   crumbIssuer: "standard"
 
 tool:
