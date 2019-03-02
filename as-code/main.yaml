@@ -29,10 +29,6 @@ tool:
       - name: Default
         home: "git"
 
-security:
-  remotingCLI:
-    enabled: false
-
 unclassified:
   location:
     url: ${jenkins_url}
