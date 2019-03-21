@@ -36,6 +36,14 @@ organizationFolder('Adhocteam Github') {
             strategyId 1
         }
         traits << 'org.jenkinsci.plugins.github__branch__source.TagDiscoveryTrait' {}
+
+
+
+        // Build strategies not available on Org Folders so doing it here
+        def buildStrategies = it / 'buildStrategies'
+        buildStrategies << 'jenkins.branch.buildstrategies.basic.BranchBuildStrategyImpl' {}
+        buildStrategies << 'jenkins.branch.buildstrategies.basic.ChangeRequestBuildStrategyImpl' {}
+        buildStrategies << 'jenkins.branch.buildstrategies.basic.TagBuildStrategyImpl' {}
     }
 
     // "Project Recognizers"
