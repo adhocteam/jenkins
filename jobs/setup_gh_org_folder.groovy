@@ -28,13 +28,12 @@ organizationFolder('Adhocteam Github') {
 
 
         // Build strategies not available on Org Folders so doing it here
-        def buildStrategies = it / 'buildStrategies'
-        buildStrategies << 'jenkins.branch.buildstrategies.basic.BranchBuildStrategyImpl plugin="basic-branch-build-strategies@1.2.0"' {}
-        buildStrategies << 'jenkins.branch.buildstrategies.basic.ChangeRequestBuildStrategyImpl plugin="basic-branch-build-strategies@1.2.0"' {
+        def buildStrategies = it / buildStrategies
+        buildStrategies << 'jenkins.branch.buildstrategies.basic.BranchBuildStrategyImpl' {}
+        buildStrategies << 'jenkins.branch.buildstrategies.basic.ChangeRequestBuildStrategyImpl' {
             ignoreTargetOnlyChanges false
-            ignoreUntrustedChanges false
         }
-        buildStrategies << 'jenkins.branch.buildstrategies.basic.TagBuildStrategyImpl plugin="basic-branch-build-strategies@1.2.0"' {
+        buildStrategies << 'jenkins.branch.buildstrategies.basic.TagBuildStrategyImpl' {
             atLeastMillis '-1'
             atMostMillis '86400000'
         }
