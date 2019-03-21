@@ -11,18 +11,6 @@ organizationFolder('Adhocteam Github') {
         }
     }
 
-    buildStrategies {
-        buildRegularBranches()
-        buildChangeRequests {
-            ignoreTargetOnlyChanges(false)
-        }
-        buildTags {
-            atLeastDays ''
-            // only build tags which were created within the past 24 hours
-            atMostDays '1'
-        }
-    }
-
     configure {
         def traits = it / navigators / 'org.jenkinsci.plugins.github__branch__source.GitHubSCMNavigator' / traits
         traits << 'org.jenkinsci.plugins.github_branch_source.BranchDiscoveryTrait' {
@@ -42,8 +30,13 @@ organizationFolder('Adhocteam Github') {
         // Build strategies not available on Org Folders so doing it here
         def buildStrategies = it / 'buildStrategies'
         buildStrategies << 'jenkins.branch.buildstrategies.basic.BranchBuildStrategyImpl' {}
-        buildStrategies << 'jenkins.branch.buildstrategies.basic.ChangeRequestBuildStrategyImpl' {}
-        buildStrategies << 'jenkins.branch.buildstrategies.basic.TagBuildStrategyImpl' {}
+        buildStrategies << 'jenkins.branch.buildstrategies.basic.ChangeRequestBuildStrategyImpl' {
+            ignoreTargetOnlyChanges(false)
+        }
+        buildStrategies << 'jenkins.branch.buildstrategies.basic.TagBuildStrategyImpl' {
+            atLeastDays ''
+            atMostDays '1'
+        }
     }
 
     // "Project Recognizers"
