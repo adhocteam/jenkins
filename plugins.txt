@@ -1,3 +1,4 @@
+authorize-project
 basic-branch-build-strategies:latest
 blueocean:latest
 blueocean-github-pipeline:latest
