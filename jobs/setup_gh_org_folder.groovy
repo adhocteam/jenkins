@@ -11,6 +11,18 @@ organizationFolder('Adhocteam Github') {
         }
     }
 
+    buildStrategies {
+        buildRegularBranches()
+        buildChangeRequests {
+            ignoreTargetOnlyChanges(false)
+        }
+        buildTags {
+            atLeastDays ''
+            // only build tags which were created within the past 24 hours
+            atMostDays '1'
+        }
+    }
+
     configure {
         def traits = it / navigators / 'org.jenkinsci.plugins.github__branch__source.GitHubSCMNavigator' / traits
         traits << 'org.jenkinsci.plugins.github_branch_source.BranchDiscoveryTrait' {
