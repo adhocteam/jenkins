@@ -32,7 +32,3 @@ tool:
 unclassified:
   location:
     url: ${jenkins_url}
-  queueItemAuthenticator:
-    authenticators:
-      - global:
-          strategy: triggeringUsersAuthorizationStrategy
