@@ -15,7 +15,7 @@ pipeline {
 
             steps {
                 script {
-                    TAG = "${BRANCH_NAME}"
+                    TAG=BRANCH_NAME.split('/').last()
                 }
             }
         }
