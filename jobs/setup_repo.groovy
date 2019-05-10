@@ -23,7 +23,7 @@ multibranchPipelineJob("demo") {
         }
         traits << 'org.jenkinsci.plugins.github__branch__source.TagDiscoveryTrait' {}
 
-        // Build strategies not available on Org Folders so doing it here
+        // Build strategies to enable tag discovery
         def buildStrategies = it / buildStrategies
         buildStrategies << 'jenkins.branch.buildstrategies.basic.BranchBuildStrategyImpl' {}
         buildStrategies << 'jenkins.branch.buildstrategies.basic.ChangeRequestBuildStrategyImpl' {
