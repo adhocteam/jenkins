@@ -1,12 +1,12 @@
 multibranchPipelineJob("demo") {
-    displayName "Demo"
-    description "https://github.com/adhocteam/"
+    displayName "VA Appeals Demo"
+    description "https://github.com/adhocteam/va-appeals-itd"
 
     branchSources {
         github {
             scanCredentialsId('github-user')
             repoOwner('adhocteam')
-            repository('sample-task-toolkit')
+            repository('va-appeals-itd')
         }
     }
 
