@@ -8,6 +8,18 @@ multibranchPipelineJob("demo") {
             repoOwner('adhocteam')
             repository('va-appeals-itd')
         }
+        buildStrategies {
+          buildRegularBranches()
+          buildChangeRequests {
+            ignoreTargetOnlyChanges false
+            ignoreUntrustedChanges true
+          }
+          buildTags {
+            atLeastDays '-1'
+            atMostDays '2'
+          }
+        }
+
     }
 
     // Find all branches and any PRs in the "merged with target" state
@@ -22,17 +34,6 @@ multibranchPipelineJob("demo") {
             strategyId(1)
         }
         traits << 'org.jenkinsci.plugins.github__branch__source.TagDiscoveryTrait' {}
-
-        // Build strategies to enable tag discovery
-        def buildStrategies = it / buildStrategies
-        buildStrategies << 'jenkins.branch.buildstrategies.basic.BranchBuildStrategyImpl' {}
-        buildStrategies << 'jenkins.branch.buildstrategies.basic.ChangeRequestBuildStrategyImpl' {
-            ignoreTargetOnlyChanges false
-        }
-        buildStrategies << 'jenkins.branch.buildstrategies.basic.TagBuildStrategyImpl' {
-            atLeastMillis '-1'
-            atMostMillis '86400000'
-        }
     }
 
     // As a back-up look for new branches/PRs once per day if no pushes
