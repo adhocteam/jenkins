@@ -3,23 +3,26 @@ multibranchPipelineJob("demo") {
     description "https://github.com/adhocteam/va-appeals-itd"
 
     branchSources {
-        github {
-            scanCredentialsId('github-user')
-            repoOwner('adhocteam')
-            repository('va-appeals-itd')
-        }
-        buildStrategies {
-          buildRegularBranches()
-          buildChangeRequests {
-            ignoreTargetOnlyChanges false
-            ignoreUntrustedChanges true
+        branchSource {
+          source {
+            github {
+                scanCredentialsId('github-user')
+                repoOwner('adhocteam')
+                repository('va-appeals-itd')
+            }
           }
-          buildTags {
-            atLeastDays '-1'
-            atMostDays '2'
+          buildStrategies {
+            buildRegularBranches()
+            buildChangeRequests {
+                ignoreTargetOnlyChanges false
+                ignoreUntrustedChanges true
+            }
+            buildTags {
+                atLeastDays '-1'
+                atMostDays '2'
+            }
           }
         }
-
     }
 
     // Find all branches and any PRs in the "merged with target" state
