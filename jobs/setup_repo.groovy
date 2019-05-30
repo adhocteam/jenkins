@@ -14,12 +14,12 @@ multibranchPipelineJob("demo") {
           buildStrategies {
             buildRegularBranches()
             buildChangeRequests {
-                ignoreTargetOnlyChanges false
-                ignoreUntrustedChanges true
+                ignoreTargetOnlyChanges(false)
+                ignoreUntrustedChanges(true)
             }
             buildTags {
-                atLeastDays '-1'
-                atMostDays '2'
+                atLeastDays ''
+                atMostDays '1'
             }
           }
         }
