@@ -6,9 +6,9 @@ multibranchPipelineJob("demo") {
         branchSource {
           source {
             github {
-                scanCredentialsId('github-user')
-                repoOwner('adhocteam')
-                repository('va-appeals-itd')
+                credentialsId 'github-user'
+                repoOwner 'adhocteam'
+                repository 'va-appeals-itd'
             }
           }
           buildStrategies {
