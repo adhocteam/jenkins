@@ -20,7 +20,7 @@ multibranchPipelineJob("demo") {
             }
             buildTags {
                 atLeastDays ''
-                atMostDays '1'
+                atMostDays '7'
             }
           }
         }

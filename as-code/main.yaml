@@ -1,5 +1,5 @@
 jenkins:
-  systemMessage: "Welcome to VA Appeals ITD Jenkins"
+  systemMessage: "Welcome to Jenkins"
   numExecutors: 0
   agentProtocols:
     - "JNLP4-connect"
@@ -20,7 +20,7 @@ jenkins:
         - "Job/Read:adhocteam"
         - "View/Read:adhocteam"
         - "Agent/Build:adhocteam"
-        - "Overall/Administer:adhocteam*va-appeals-itd"
+        - "Overall/Administer:adhocteam*Infrastructure Team"
   crumbIssuer: "standard"
 
 tool:
