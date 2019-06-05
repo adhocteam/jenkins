@@ -4,25 +4,25 @@ multibranchPipelineJob("demo") {
 
     branchSources {
         branchSource {
-          source {
-            github {
-                credentialsId 'github-user'
-                repoOwner 'adhocteam'
-                repository ''
+            source {
+                github {
+                    credentialsId 'github-user'
+                        repoOwner 'adhocteam'
+                        repository ''
+                }
             }
-          }
-          buildStrategies {
-	    skipInitialBuildOnFirstBranchIndexing()
-            buildRegularBranches()
-            buildChangeRequests {
-                ignoreTargetOnlyChanges(false)
-                ignoreUntrustedChanges(true)
+            buildStrategies {
+                skipInitialBuildOnFirstBranchIndexing()
+                    buildRegularBranches()
+                    buildChangeRequests {
+                        ignoreTargetOnlyChanges(false)
+                            ignoreUntrustedChanges(true)
+                    }
+                buildTags {
+                    atLeastDays ''
+                        atMostDays '7'
+                }
             }
-            buildTags {
-                atLeastDays ''
-                atMostDays '7'
-            }
-          }
         }
     }
 
@@ -43,9 +43,8 @@ multibranchPipelineJob("demo") {
     // As a back-up look for new branches/PRs once per day if no pushes
     configure { node ->
         node / triggers / 'com.cloudbees.hudson.plugins.folder.computed.PeriodicFolderTrigger' {
-        spec('H H * * *')
-        interval(86400000)
+            spec('H H * * *')
+            interval(86400000)
         }
     }
-
 }
