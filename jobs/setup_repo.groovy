@@ -1,6 +1,6 @@
 multibranchPipelineJob("demo") {
-    displayName "VA Appeals Demo"
-    description "https://github.com/adhocteam/va-appeals-itd"
+    displayName "Demo"
+    description "https://github.com/adhocteam/"
 
     branchSources {
         branchSource {
@@ -8,10 +8,11 @@ multibranchPipelineJob("demo") {
             github {
                 credentialsId 'github-user'
                 repoOwner 'adhocteam'
-                repository 'va-appeals-itd'
+                repository ''
             }
           }
           buildStrategies {
+	    skipInitialBuildOnFirstBranchIndexing()
             buildRegularBranches()
             buildChangeRequests {
                 ignoreTargetOnlyChanges(false)

@@ -3,7 +3,6 @@ basic-branch-build-strategies:latest
 blueocean:latest
 blueocean-github-pipeline:latest
 configuration-as-code:latest
-configuration-as-code-support:latest
 credentials-binding:latest
 docker-workflow:latest
 git:latest
@@ -13,6 +12,7 @@ job-dsl:latest
 matrix-auth:latest
 nodelabelparameter:latest
 pipeline-github:latest
+prometheus:latest
 slack:latest
 swarm:latest
 workflow-aggregator:latest

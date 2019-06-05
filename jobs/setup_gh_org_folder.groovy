@@ -29,13 +29,14 @@ organizationFolder('Adhocteam Github') {
 
         // Build strategies not available on Org Folders so doing it here
         def buildStrategies = it / buildStrategies
+	buildStrategies << 'jenkins.branch.buildstrategies.basic.SkipInitialBuildOnFirstBranchIndexing' {}
         buildStrategies << 'jenkins.branch.buildstrategies.basic.BranchBuildStrategyImpl' {}
         buildStrategies << 'jenkins.branch.buildstrategies.basic.ChangeRequestBuildStrategyImpl' {
             ignoreTargetOnlyChanges false
         }
         buildStrategies << 'jenkins.branch.buildstrategies.basic.TagBuildStrategyImpl' {
             atLeastMillis '-1'
-            atMostMillis '86400000'
+            atMostMillis '604800000'
         }
     }
 
