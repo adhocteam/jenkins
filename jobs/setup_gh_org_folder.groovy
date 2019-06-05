@@ -6,8 +6,8 @@ organizationFolder('Adhocteam Github') {
     organizations {
         github {
             repoOwner("adhocteam")
-                apiUri("https://api.github.com")
-                credentialsId('github-user')
+            apiUri("https://api.github.com")
+            credentialsId('github-user')
         }
     }
 
@@ -58,7 +58,7 @@ organizationFolder('Adhocteam Github') {
     configure { node ->
         node / triggers / 'com.cloudbees.hudson.plugins.folder.computed.PeriodicFolderTrigger' {
             spec('H H * * *')
-                interval(86400000)
+            interval(86400000)
         }
     }
 }

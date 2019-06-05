@@ -7,20 +7,20 @@ multibranchPipelineJob("demo") {
             source {
                 github {
                     credentialsId 'github-user'
-                        repoOwner 'adhocteam'
-                        repository ''
+                    repoOwner 'adhocteam'
+                    repository ''
                 }
             }
             buildStrategies {
                 skipInitialBuildOnFirstBranchIndexing()
-                    buildRegularBranches()
-                    buildChangeRequests {
-                        ignoreTargetOnlyChanges(false)
-                            ignoreUntrustedChanges(true)
-                    }
+                buildRegularBranches()
+                buildChangeRequests {
+                    ignoreTargetOnlyChanges(false)
+                    ignoreUntrustedChanges(true)
+                }
                 buildTags {
                     atLeastDays ''
-                        atMostDays '7'
+                    atMostDays '7'
                 }
             }
         }
