@@ -1,5 +1,5 @@
 jenkins:
-  systemMessage: "Welcome to Adhocteam Jenkins"
+  systemMessage: "Welcome to Jenkins"
   numExecutors: 0
   agentProtocols:
     - "JNLP4-connect"

@@ -25,17 +25,16 @@ organizationFolder('Adhocteam Github') {
         }
         traits << 'org.jenkinsci.plugins.github__branch__source.TagDiscoveryTrait' {}
 
-
-
         // Build strategies not available on Org Folders so doing it here
         def buildStrategies = it / buildStrategies
+        buildStrategies << 'jenkins.branch.buildstrategies.basic.SkipInitialBuildOnFirstBranchIndexing' {}
         buildStrategies << 'jenkins.branch.buildstrategies.basic.BranchBuildStrategyImpl' {}
         buildStrategies << 'jenkins.branch.buildstrategies.basic.ChangeRequestBuildStrategyImpl' {
             ignoreTargetOnlyChanges false
         }
         buildStrategies << 'jenkins.branch.buildstrategies.basic.TagBuildStrategyImpl' {
             atLeastMillis '-1'
-            atMostMillis '86400000'
+            atMostMillis '604800000'
         }
     }
 
@@ -49,8 +48,8 @@ organizationFolder('Adhocteam Github') {
     // "Orphaned Item Strategy"
     orphanedItemStrategy {
         discardOldItems {
-        daysToKeep(-1)
-        numToKeep(-1)
+            daysToKeep(-1)
+            numToKeep(-1)
         }
     }
 
@@ -58,8 +57,8 @@ organizationFolder('Adhocteam Github') {
     // We need to configure this stuff by hand because JobDSL only allow 'periodic(int min)' for now
     configure { node ->
         node / triggers / 'com.cloudbees.hudson.plugins.folder.computed.PeriodicFolderTrigger' {
-        spec('H H * * *')
-        interval(86400000)
+            spec('H H * * *')
+            interval(86400000)
         }
     }
 }
