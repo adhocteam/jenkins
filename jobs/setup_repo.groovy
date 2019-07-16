@@ -8,7 +8,7 @@ multibranchPipelineJob("demo") {
                 github {
                     credentialsId 'github-user'
                     repoOwner 'adhocteam'
-                    repository ''
+                    repository 'styleguide'
                 }
             }
             buildStrategies {
