@@ -9,6 +9,8 @@ multibranchPipelineJob("demo") {
                     credentialsId 'github-user'
                     repoOwner 'adhocllc'
                     repository 'boilerplate2-demo'
+                    repositoryUrl 'https://github.com/adhocllc/boilerplate2-demo'
+                    configuredByUrl true
                 }
             }
             buildStrategies {
