@@ -16,11 +16,11 @@ jenkins:
   authorizationStrategy:
     globalMatrix:
       grantedPermissions:
-        - "Overall/Read:adhocteam"
-        - "Job/Read:adhocteam"
-        - "View/Read:adhocteam"
-        - "Agent/Build:adhocteam"
-        - "Overall/Administer:adhocteam*boilerplate 2"
+        - "Overall/Read:adhocllc"
+        - "Job/Read:adhocllc"
+        - "View/Read:adhocllc"
+        - "Agent/Build:adhocllc"
+        - "Overall/Administer:adhocllc*boilerplate2"
   crumbIssuer: "standard"
 
 tool:
