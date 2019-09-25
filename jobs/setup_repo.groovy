@@ -1,14 +1,14 @@
 multibranchPipelineJob("demo") {
     displayName "Demo"
-    description "https://github.com/adhocteam/"
+    description "https://github.com/adhocllc/"
 
     branchSources {
         branchSource {
             source {
                 github {
                     credentialsId 'github-user'
-                    repoOwner 'adhocteam'
-                    repository ''
+                    repoOwner 'adhocllc'
+                    repository 'boilerplate2-demo'
                 }
             }
             buildStrategies {

@@ -1,5 +1,5 @@
 unclassified:
   slackNotifier:
-    teamDomain: 'adhoc'
-    tokenCredentialId: 'slack-token'
-    room: '#inf-alerts'
+    teamDomain: "adhoc"
+    tokenCredentialId: "slack-token"
+    room: "#boilerplate2-proposal"
