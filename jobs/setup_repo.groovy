@@ -7,8 +7,10 @@ multibranchPipelineJob("demo") {
             source {
                 github {
                     credentialsId 'github-user'
-                    repoOwner 'adhocteam'
+                    repoOwner 'adhollc'
                     repository ''
+                    repositoryUrl 'https://github.com/adhocllc/repo-name'
+                    configuredByUrl true
                 }
             }
             buildStrategies {
